@@ -48,6 +48,45 @@ const initialPolls = [
     }
 ];
 
+// Complaints
+const initialComplaints = [
+    {
+        id: 1,
+        title: 'Broken Window Latch',
+        description: 'The latch on the window in room 204 is broken and does not close properly.',
+        type: 'Maintenance',
+        status: 'Pending',
+        date: new Date().toISOString(),
+        studentName: 'Rahul Kumar',
+        room: '204'
+    },
+    {
+        id: 2,
+        title: 'Water Cooler Not Cooling',
+        description: 'The water cooler on the 2nd floor is dispensing warm water.',
+        type: 'Infrastructure',
+        status: 'Resolved',
+        date: new Date(Date.now() - 172800000).toISOString(),
+        studentName: 'Amit Singh',
+        room: '208'
+    }
+];
+
+// Gate Passes
+const initialGatePasses = [
+    {
+        id: 1,
+        studentName: 'Vikram Malhotra',
+        room: '302',
+        reason: 'Weekend Home Visit',
+        destination: 'Mumbai',
+        outTime: new Date(Date.now() + 86400000).toISOString(),
+        returnTime: new Date(Date.now() + 259200000).toISOString(),
+        status: 'Pending',
+        requestedAt: new Date().toISOString()
+    }
+];
+
 const STUDENTS_KEY = 'hostel_students';
 const COMPLAINTS_KEY = 'hostel_complaints';
 const GATE_PASSES_KEY = 'hostel_gate_passes';
