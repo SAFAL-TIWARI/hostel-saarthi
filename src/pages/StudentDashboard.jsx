@@ -74,8 +74,8 @@ const StudentDashboard = () => {
                     <Icon className={`w-6 h-6 ${color.replace('bg-', 'text-')}`} />
                 </div>
                 <p className="text-sm font-medium text-slate-500">{title}</p>
-                <h3 className="text-3xl font-bold text-slate-800 mt-1">{value}</h3>
-                <p className="text-xs text-slate-400 mt-2">{subtext}</p>
+                <h3 className="text-3xl font-bold text-slate-800 mt-1 dark:text-slate-100">{value}</h3>
+                <p className="text-xs text-slate-400 mt-2 dark:text-slate-500">{subtext}</p>
             </CardContent>
         </Card>
     );
@@ -87,8 +87,8 @@ const StudentDashboard = () => {
                     <div className="space-y-6 animate-in fade-in duration-500">
                         <div className="flex justify-between items-center">
                             <div>
-                                <h2 className="text-2xl font-bold font-display text-slate-800">Available Rooms</h2>
-                                <p className="text-slate-500">Find and book your perfect room</p>
+                                <h2 className="text-2xl font-bold font-display text-slate-800 dark:text-white">Available Rooms</h2>
+                                <p className="text-slate-500 dark:text-slate-400">Find and book your perfect room</p>
                             </div>
                         </div>
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
@@ -113,22 +113,22 @@ const StudentDashboard = () => {
                             </CardHeader>
                             <CardContent>
                                 <div className="space-y-4">
-                                    <div className="flex justify-between items-center bg-slate-50 p-4 rounded-xl">
-                                        <span className="font-medium text-slate-700">Breakfast (25 days)</span>
-                                        <span className="font-bold text-slate-900">₹ 1,250</span>
+                                    <div className="flex justify-between items-center bg-slate-50 p-4 rounded-xl dark:bg-slate-800/50">
+                                        <span className="font-medium text-slate-700 dark:text-slate-300">Breakfast (25 days)</span>
+                                        <span className="font-bold text-slate-900 dark:text-white">₹ 1,250</span>
                                     </div>
-                                    <div className="flex justify-between items-center bg-slate-50 p-4 rounded-xl">
-                                        <span className="font-medium text-slate-700">Lunch (28 days)</span>
-                                        <span className="font-bold text-slate-900">₹ 2,100</span>
+                                    <div className="flex justify-between items-center bg-slate-50 p-4 rounded-xl dark:bg-slate-800/50">
+                                        <span className="font-medium text-slate-700 dark:text-slate-300">Lunch (28 days)</span>
+                                        <span className="font-bold text-slate-900 dark:text-white">₹ 2,100</span>
                                     </div>
-                                    <div className="flex justify-between items-center bg-slate-50 p-4 rounded-xl">
-                                        <span className="font-medium text-slate-700">Dinner (28 days)</span>
-                                        <span className="font-bold text-slate-900">₹ 2,100</span>
+                                    <div className="flex justify-between items-center bg-slate-50 p-4 rounded-xl dark:bg-slate-800/50">
+                                        <span className="font-medium text-slate-700 dark:text-slate-300">Dinner (28 days)</span>
+                                        <span className="font-bold text-slate-900 dark:text-white">₹ 2,100</span>
                                     </div>
                                     <div className="my-6 border-t border-dashed border-slate-200"></div>
-                                    <div className="flex justify-between items-center p-4 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl border border-blue-100">
-                                        <span className="text-lg font-bold text-blue-900">Total Amount Due</span>
-                                        <span className="text-2xl font-bold text-blue-900">₹ 5,450</span>
+                                    <div className="flex justify-between items-center p-4 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl border border-blue-100 dark:from-blue-900/20 dark:to-indigo-900/20 dark:border-blue-900/30">
+                                        <span className="text-lg font-bold text-blue-900 dark:text-blue-300">Total Amount Due</span>
+                                        <span className="text-2xl font-bold text-blue-900 dark:text-blue-300">₹ 5,450</span>
                                     </div>
                                     <Button className="w-full h-12 text-lg">Pay Now via UPI</Button>
                                 </div>
@@ -141,8 +141,8 @@ const StudentDashboard = () => {
                     <div className="space-y-6 animate-in fade-in duration-500">
                         <div className="flex justify-between items-center">
                             <div>
-                                <h2 className="text-2xl font-bold font-display text-slate-800">Complaints</h2>
-                                <p className="text-slate-500">Report issues and track status</p>
+                                <h2 className="text-2xl font-bold font-display text-slate-800 dark:text-white">Complaints</h2>
+                                <p className="text-slate-500 dark:text-slate-400">Report issues and track status</p>
                             </div>
                             <Button onClick={() => setIsComplaintModalOpen(true)}>
                                 <Plus className="w-4 h-4 mr-2" /> New Complaint
@@ -150,21 +150,21 @@ const StudentDashboard = () => {
                         </div>
                         <div className="grid gap-4">
                             {complaints.length === 0 ? (
-                                <div className="text-center py-12 bg-white rounded-2xl border border-dashed border-slate-200">
-                                    <MessageSquare className="w-12 h-12 text-slate-300 mx-auto mb-3" />
-                                    <p className="text-slate-500">No complaints registered yet.</p>
+                                <div className="text-center py-12 bg-white rounded-2xl border border-dashed border-slate-200 dark:bg-slate-900 dark:border-slate-800">
+                                    <MessageSquare className="w-12 h-12 text-slate-300 mx-auto mb-3 dark:text-slate-700" />
+                                    <p className="text-slate-500 dark:text-slate-400">No complaints registered yet.</p>
                                 </div>
                             ) : complaints.map(c => (
                                 <Card key={c.id} className="hover:border-slate-300 transition-colors">
                                     <CardContent className="flex flex-col md:flex-row justify-between gap-4">
                                         <div>
                                             <div className="flex items-center gap-3 mb-2">
-                                                <h4 className="font-bold text-slate-800">{c.title}</h4>
-                                                <span className={`px-2.5 py-0.5 rounded-full text-xs font-semibold ${c.status === 'Resolved' ? 'bg-emerald-100 text-emerald-700' : 'bg-amber-100 text-amber-700'}`}>
+                                                <h4 className="font-bold text-slate-800 dark:text-slate-100">{c.title}</h4>
+                                                <span className={`px-2.5 py-0.5 rounded-full text-xs font-semibold ${c.status === 'Resolved' ? 'bg-emerald-100 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-400' : 'bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-400'}`}>
                                                     {c.status}
                                                 </span>
                                             </div>
-                                            <p className="text-slate-600">{c.description}</p>
+                                            <p className="text-slate-600 dark:text-slate-400">{c.description}</p>
                                         </div>
                                         <div className="text-right text-xs text-slate-400">
                                             <p>Room: {c.roomNumber}</p>
@@ -181,8 +181,8 @@ const StudentDashboard = () => {
                     <div className="space-y-6 animate-in fade-in duration-500">
                         <div className="flex justify-between items-center">
                             <div>
-                                <h2 className="text-2xl font-bold font-display text-slate-800">Gate Passes</h2>
-                                <p className="text-slate-500">Request permission for leave</p>
+                                <h2 className="text-2xl font-bold font-display text-slate-800 dark:text-white">Gate Passes</h2>
+                                <p className="text-slate-500 dark:text-slate-400">Request permission for leave</p>
                             </div>
                             <Button onClick={() => setIsGatePassModalOpen(true)}>
                                 <Plus className="w-4 h-4 mr-2" /> Request Pass
@@ -190,17 +190,17 @@ const StudentDashboard = () => {
                         </div>
                         <div className="grid gap-4">
                             {gatePasses.length === 0 ? (
-                                <div className="text-center py-12 bg-white rounded-2xl border border-dashed border-slate-200">
-                                    <DoorOpen className="w-12 h-12 text-slate-300 mx-auto mb-3" />
-                                    <p className="text-slate-500">No gate pass requests found.</p>
+                                <div className="text-center py-12 bg-white rounded-2xl border border-dashed border-slate-200 dark:bg-slate-900 dark:border-slate-800">
+                                    <DoorOpen className="w-12 h-12 text-slate-300 mx-auto mb-3 dark:text-slate-700" />
+                                    <p className="text-slate-500 dark:text-slate-400">No gate pass requests found.</p>
                                 </div>
                             ) : gatePasses.map(p => (
                                 <Card key={p.id}>
                                     <CardContent className="flex flex-col md:flex-row justify-between gap-4">
                                         <div>
                                             <div className="flex items-center gap-3 mb-2">
-                                                <h4 className="font-bold text-slate-800">{p.reason}</h4>
-                                                <span className={`px-2.5 py-0.5 rounded-full text-xs font-semibold ${p.status === 'Approved' ? 'bg-emerald-100 text-emerald-700' : p.status === 'Rejected' ? 'bg-rose-100 text-rose-700' : 'bg-amber-100 text-amber-700'}`}>
+                                                <h4 className="font-bold text-slate-800 dark:text-slate-100">{p.reason}</h4>
+                                                <span className={`px-2.5 py-0.5 rounded-full text-xs font-semibold ${p.status === 'Approved' ? 'bg-emerald-100 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-400' : p.status === 'Rejected' ? 'bg-rose-100 text-rose-700 dark:bg-rose-900/30 dark:text-rose-400' : 'bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-400'}`}>
                                                     {p.status}
                                                 </span>
                                             </div>
@@ -251,23 +251,23 @@ const StudentDashboard = () => {
                                 <div className="grid grid-cols-2 gap-4">
                                     <div
                                         onClick={() => setIsComplaintModalOpen(true)}
-                                        className="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-all cursor-pointer group"
+                                        className="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-all cursor-pointer group dark:bg-slate-900 dark:border-slate-800"
                                     >
-                                        <div className="w-10 h-10 bg-blue-50 rounded-lg flex items-center justify-center text-blue-600 mb-3 group-hover:scale-110 transition-transform">
+                                        <div className="w-10 h-10 bg-blue-50 rounded-lg flex items-center justify-center text-blue-600 mb-3 group-hover:scale-110 transition-transform dark:bg-blue-900/20 dark:text-blue-400">
                                             <MessageSquare className="w-5 h-5" />
                                         </div>
-                                        <h4 className="font-semibold text-slate-800">Raise Complaint</h4>
-                                        <p className="text-xs text-slate-500 mt-1">Report issues instantly</p>
+                                        <h4 className="font-semibold text-slate-800 dark:text-slate-100">Raise Complaint</h4>
+                                        <p className="text-xs text-slate-500 mt-1 dark:text-slate-400">Report issues instantly</p>
                                     </div>
                                     <div
                                         onClick={() => setIsGatePassModalOpen(true)}
-                                        className="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-all cursor-pointer group"
+                                        className="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-all cursor-pointer group dark:bg-slate-900 dark:border-slate-800"
                                     >
-                                        <div className="w-10 h-10 bg-indigo-50 rounded-lg flex items-center justify-center text-indigo-600 mb-3 group-hover:scale-110 transition-transform">
+                                        <div className="w-10 h-10 bg-indigo-50 rounded-lg flex items-center justify-center text-indigo-600 mb-3 group-hover:scale-110 transition-transform dark:bg-indigo-900/20 dark:text-indigo-400">
                                             <DoorOpen className="w-5 h-5" />
                                         </div>
-                                        <h4 className="font-semibold text-slate-800">Gate Pass</h4>
-                                        <p className="text-xs text-slate-500 mt-1">Apply for leave</p>
+                                        <h4 className="font-semibold text-slate-800 dark:text-slate-100">Gate Pass</h4>
+                                        <p className="text-xs text-slate-500 mt-1 dark:text-slate-400">Apply for leave</p>
                                     </div>
                                 </div>
                             </div>
@@ -279,11 +279,11 @@ const StudentDashboard = () => {
                                 <CardContent>
                                     <div className="space-y-4">
                                         {[1, 2, 3].map(i => (
-                                            <div key={i} className="flex items-start gap-3 pb-4 border-b border-slate-50 last:border-0 last:pb-0">
+                                            <div key={i} className="flex items-start gap-3 pb-4 border-b border-slate-50 last:border-0 last:pb-0 dark:border-slate-800">
                                                 <div className="w-2 h-2 mt-2 rounded-full bg-blue-500"></div>
                                                 <div>
-                                                    <p className="text-sm font-medium text-slate-800">Mess bill generated</p>
-                                                    <p className="text-xs text-slate-500">2 hours ago</p>
+                                                    <p className="text-sm font-medium text-slate-800 dark:text-slate-200">Mess bill generated</p>
+                                                    <p className="text-xs text-slate-500 dark:text-slate-500">2 hours ago</p>
                                                 </div>
                                             </div>
                                         ))}
@@ -297,11 +297,11 @@ const StudentDashboard = () => {
     };
 
     return (
-        <div className="flex h-screen bg-slate-50">
+        <div className="flex h-screen bg-slate-50 dark:bg-slate-950">
             <Sidebar isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} />
             <div className="flex-1 flex flex-col overflow-hidden">
                 <Navbar toggleSidebar={() => setSidebarOpen(!sidebarOpen)} />
-                <main className="flex-1 overflow-x-hidden overflow-y-auto bg-slate-50 p-4 lg:p-8">
+                <main className="flex-1 overflow-x-hidden overflow-y-auto bg-slate-50 p-4 lg:p-8 dark:bg-slate-950">
                     <div className="max-w-7xl mx-auto">
                         <Toaster position="top-right" richColors />
                         {renderContent()}
@@ -315,9 +315,9 @@ const StudentDashboard = () => {
                     <Input label="Room Number" value={ComplaintForm.roomNumber} onChange={e => setComplaintForm({ ...ComplaintForm, roomNumber: e.target.value })} required placeholder="e.g. 101" />
                     <Input label="Title" value={ComplaintForm.title} onChange={e => setComplaintForm({ ...ComplaintForm, title: e.target.value })} required placeholder="Brief description of issue" />
                     <div className="space-y-1.5">
-                        <label className="block text-sm font-medium text-slate-700 ml-1">Description</label>
+                        <label className="block text-sm font-medium text-slate-700 ml-1 dark:text-slate-300">Description</label>
                         <textarea
-                            className="w-full px-4 py-2 bg-white border border-slate-200 rounded-xl text-slate-900 placeholder-slate-400 focus:outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 min-h-[100px]"
+                            className="w-full px-4 py-2 bg-white border border-slate-200 rounded-xl text-slate-900 placeholder-slate-400 focus:outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 min-h-[100px] dark:bg-slate-900 dark:border-slate-700 dark:text-slate-100 dark:placeholder-slate-500 dark:focus:ring-blue-500/20"
                             value={ComplaintForm.description}
                             onChange={e => setComplaintForm({ ...ComplaintForm, description: e.target.value })}
                             required
@@ -336,9 +336,9 @@ const StudentDashboard = () => {
                         <Input label="Return" type="date" value={gatePassForm.returnDate} onChange={e => setGatePassForm({ ...gatePassForm, returnDate: e.target.value })} required />
                     </div>
                     <div className="space-y-1.5">
-                        <label className="block text-sm font-medium text-slate-700 ml-1">Reason</label>
+                        <label className="block text-sm font-medium text-slate-700 ml-1 dark:text-slate-300">Reason</label>
                         <textarea
-                            className="w-full px-4 py-2 bg-white border border-slate-200 rounded-xl text-slate-900 placeholder-slate-400 focus:outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 min-h-[80px]"
+                            className="w-full px-4 py-2 bg-white border border-slate-200 rounded-xl text-slate-900 placeholder-slate-400 focus:outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 min-h-[80px] dark:bg-slate-900 dark:border-slate-700 dark:text-slate-100 dark:placeholder-slate-500 dark:focus:ring-blue-500/20"
                             value={gatePassForm.reason}
                             onChange={e => setGatePassForm({ ...gatePassForm, reason: e.target.value })}
                             required

@@ -1,15 +1,15 @@
-
 import React, { useState } from 'react';
 import { useAuth } from '../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
 import { BookOpen, ShieldCheck, ArrowRight } from 'lucide-react';
-import { Card, CardContent } from '../components/ui/Card';
-import { Button } from '../components/ui/Button';
+import StudentLogin from '../components/auth/StudentLogin';
+import WardenLogin from '../components/auth/WardenLogin';
 
 const Login = () => {
     const { login } = useAuth();
     const navigate = useNavigate();
     const [loading, setLoading] = useState(false);
+    const [view, setView] = useState('selection'); // 'selection' | 'student' | 'warden'
 
     const handleLogin = (role) => {
         setLoading(true);
@@ -22,7 +22,7 @@ const Login = () => {
     };
 
     return (
-        <div className="min-h-screen bg-slate-50 flex">
+        <div className="min-h-screen bg-slate-50 flex dark:bg-slate-950">
             {/* Left Side - Hero */}
             <div className="hidden lg:flex lg:w-1/2 bg-blue-600 relative overflow-hidden items-center justify-center p-12 text-white">
                 <div className="absolute inset-0 bg-gradient-to-br from-blue-600 to-indigo-800 z-0"></div>
@@ -51,53 +51,65 @@ const Login = () => {
 
             {/* Right Side - Login */}
             <div className="w-full lg:w-1/2 flex items-center justify-center p-8">
-                <div className="w-full max-w-md space-y-8 animate-in fade-in slide-in-from-bottom-8 duration-700">
-                    <div className="text-center lg:text-left">
-                        <h2 className="text-3xl font-bold text-slate-900 font-display">Sign In</h2>
-                        <p className="text-slate-500 mt-2">Choose your portal to continue</p>
-                    </div>
-
-                    <div className="grid gap-4">
-                        <button
-                            onClick={() => handleLogin('student')}
-                            disabled={loading}
-                            className="group relative flex items-center p-4 bg-white border border-slate-200 rounded-2xl hover:border-blue-500 hover:shadow-lg hover:shadow-blue-500/10 transition-all duration-200 text-left"
-                        >
-                            <div className="w-12 h-12 bg-blue-50 rounded-full flex items-center justify-center text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition-colors">
-                                <BookOpen className="w-6 h-6" />
-                            </div>
-                            <div className="ml-4 flex-1">
-                                <h3 className="font-semibold text-slate-800 group-hover:text-blue-600 transition-colors">Student Portal</h3>
-                                <p className="text-sm text-slate-500">Access room booking & requests</p>
-                            </div>
-                            <ArrowRight className="w-5 h-5 text-slate-300 group-hover:text-blue-500 transform group-hover:translate-x-1 transition-all" />
-                        </button>
-
-                        <button
-                            onClick={() => handleLogin('warden')}
-                            disabled={loading}
-                            className="group relative flex items-center p-4 bg-white border border-slate-200 rounded-2xl hover:border-indigo-500 hover:shadow-lg hover:shadow-indigo-500/10 transition-all duration-200 text-left"
-                        >
-                            <div className="w-12 h-12 bg-indigo-50 rounded-full flex items-center justify-center text-indigo-600 group-hover:bg-indigo-600 group-hover:text-white transition-colors">
-                                <ShieldCheck className="w-6 h-6" />
-                            </div>
-                            <div className="ml-4 flex-1">
-                                <h3 className="font-semibold text-slate-800 group-hover:text-indigo-600 transition-colors">Warden Portal</h3>
-                                <p className="text-sm text-slate-500">Manage hostel operations</p>
-                            </div>
-                            <ArrowRight className="w-5 h-5 text-slate-300 group-hover:text-indigo-500 transform group-hover:translate-x-1 transition-all" />
-                        </button>
-                    </div>
-
-                    <div className="relative">
-                        <div className="absolute inset-0 flex items-center">
-                            <div className="w-full border-t border-slate-100"></div>
+                {view === 'student' ? (
+                    <StudentLogin
+                        onBack={() => setView('selection')}
+                        onLogin={() => handleLogin('student')}
+                    />
+                ) : view === 'warden' ? (
+                    <WardenLogin
+                        onBack={() => setView('selection')}
+                        onLogin={() => handleLogin('warden')}
+                    />
+                ) : (
+                    <div className="w-full max-w-md space-y-8 animate-in fade-in slide-in-from-bottom-8 duration-700">
+                        <div className="text-center lg:text-left">
+                            <h2 className="text-3xl font-bold text-slate-900 font-display dark:text-white">Sign In</h2>
+                            <p className="text-slate-500 mt-2 dark:text-slate-400">Choose your portal to continue</p>
                         </div>
-                        <div className="relative flex justify-center text-xs uppercase">
-                            <span className="bg-slate-50 px-2 text-slate-400">Trusted by 50+ Institutions</span>
+
+                        <div className="grid gap-4">
+                            <button
+                                onClick={() => setView('student')}
+                                disabled={loading}
+                                className="group relative flex items-center p-4 bg-white border border-slate-200 rounded-2xl hover:border-blue-500 hover:shadow-lg hover:shadow-blue-500/10 transition-all duration-200 text-left dark:bg-slate-900 dark:border-slate-800 dark:hover:border-blue-500 dark:hover:shadow-blue-500/20"
+                            >
+                                <div className="w-12 h-12 bg-blue-50 rounded-full flex items-center justify-center text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition-colors dark:bg-blue-900/20 dark:text-blue-400">
+                                    <BookOpen className="w-6 h-6" />
+                                </div>
+                                <div className="ml-4 flex-1">
+                                    <h3 className="font-semibold text-slate-800 group-hover:text-blue-600 transition-colors dark:text-slate-200 dark:group-hover:text-blue-400">Student Portal</h3>
+                                    <p className="text-sm text-slate-500 dark:text-slate-500">Access room booking & requests</p>
+                                </div>
+                                <ArrowRight className="w-5 h-5 text-slate-300 group-hover:text-blue-500 transform group-hover:translate-x-1 transition-all" />
+                            </button>
+
+                            <button
+                                onClick={() => setView('warden')}
+                                disabled={loading}
+                                className="group relative flex items-center p-4 bg-white border border-slate-200 rounded-2xl hover:border-indigo-500 hover:shadow-lg hover:shadow-indigo-500/10 transition-all duration-200 text-left dark:bg-slate-900 dark:border-slate-800 dark:hover:border-indigo-500 dark:hover:shadow-indigo-500/20"
+                            >
+                                <div className="w-12 h-12 bg-indigo-50 rounded-full flex items-center justify-center text-indigo-600 group-hover:bg-indigo-600 group-hover:text-white transition-colors dark:bg-indigo-900/20 dark:text-indigo-400">
+                                    <ShieldCheck className="w-6 h-6" />
+                                </div>
+                                <div className="ml-4 flex-1">
+                                    <h3 className="font-semibold text-slate-800 group-hover:text-indigo-600 transition-colors dark:text-slate-200 dark:group-hover:text-indigo-400">Warden Portal</h3>
+                                    <p className="text-sm text-slate-500 dark:text-slate-500">Manage hostel operations</p>
+                                </div>
+                                <ArrowRight className="w-5 h-5 text-slate-300 group-hover:text-indigo-500 transform group-hover:translate-x-1 transition-all" />
+                            </button>
+                        </div>
+
+                        <div className="relative">
+                            <div className="absolute inset-0 flex items-center">
+                                <div className="w-full border-t border-slate-100"></div>
+                            </div>
+                            <div className="relative flex justify-center text-xs uppercase">
+                                <span className="bg-slate-50 px-2 text-slate-400 dark:bg-slate-950 dark:text-slate-600">Trusted by 50+ Institutions</span>
+                            </div>
                         </div>
                     </div>
-                </div>
+                )}
             </div>
         </div>
     );

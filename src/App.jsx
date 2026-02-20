@@ -7,6 +7,8 @@ import StudentDashboard from './pages/StudentDashboard';
 import WardenDashboard from './pages/WardenDashboard';
 import LostFound from './pages/LostFound';
 import Polls from './pages/Polls';
+import Profile from './pages/Profile';
+import Events from './pages/Events';
 
 const ProtectedRoute = ({ children, allowedRole }) => {
   const { user, loading } = useAuth();
@@ -53,6 +55,22 @@ const App = () => {
             element={
               <ProtectedRoute>
                 <Polls />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/profile"
+            element={
+              <ProtectedRoute>
+                <Profile />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/events"
+            element={
+              <ProtectedRoute>
+                <Events />
               </ProtectedRoute>
             }
           />

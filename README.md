@@ -1,16 +1,64 @@
-# React + Vite
+# HostelSaarthi 🏨
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+HostelSaarthi is a comprehensive Hostel Management System designed to bridge the gap between students and wardens. It streamlines daily hostel operations, enhances communication, and provides a centralized platform for essential services.
 
-Currently, two official plugins are available:
+## ✨ Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Role-Based Access Control**: Secure login and distinct dashboards for Students and Wardens.
+- **Student Dashboard**: Access to personal details, complaints, and notifications.
+- **Warden Dashboard**: Manage student requests, oversee hostel activities, and broadcast announcements.
+- **Lost & Found Hub**: A dedicated section for reporting and finding lost items within the hostel premises.
+- **Community Polls**: distinct feature for gathering student opinions and making democratic decisions.
+- **Events Management**: Keep track of upcoming hostel events and activities.
+- **Profile Management**: Easy-to-use interface for updating personal information.
+- **Real-time Notifications**: Instant alerts for important updates using Sonner.
 
-## React Compiler
+## 🛠️ Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Frontend Framework**: [React](https://react.dev/) (v19)
+- **Build Tool**: [Vite](https://vitejs.dev/)
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
+- **Routing**: [React Router DOM](https://reactrouter.com/)
+- **Icons**: [Lucide React](https://lucide.dev/)
+- **Notifications**: [Sonner](https://sonner.emilkowal.ski/)
 
-## Expanding the ESLint configuration
+## 🚀 Getting Started
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Follow these steps to set up the project locally.
+
+### Prerequisites
+
+- Node.js (v18 or higher)
+- npm or yarn
+
+### Installation
+
+1.  **Clone the repository**
+    ```bash
+    git clone https://github.com/your-username/HostelSaarthi.git
+    cd HostelSaarthi
+    ```
+
+2.  **Install dependencies**
+    ```bash
+    npm install
+    ```
+
+3.  **Run the development server**
+    ```bash
+    npm run dev
+    ```
+
+4.  **Open in browser**
+    Navigate to `http://localhost:5173` (or the port shown in your terminal).
+
+## 📜 Scripts
+
+- `npm run dev`: Starts the development server.
+- `npm run build`: Builds the app for production.
+- `npm run lint`: Runs ESLint to check for code quality issues.
+- `npm run preview`: Previews the production build locally.
+
+---
+
+Made with ❤️ by the HostelSaarthi Team

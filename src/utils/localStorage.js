@@ -18,7 +18,7 @@ const initialLostFound = [
         status: 'Found', // Lost, Found, Claimed, Returned
         contact: 'Warden Office',
         date: new Date().toISOString(),
-        image: 'https://images.unsplash.com/photo-1602143407151-011141950038?auto=format&fit=crop&q=80&w=300&h=300'
+        image: 'https://imgs.search.brave.com/Ky-Rj7L3QrLQ4cJ6C1eg_qcM7C_czTqq7Gbl7s9oanM/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9tZWRp/YS5pc3RvY2twaG90/by5jb20vaWQvMTM4/MzMxNDYyMy9waG90/by9ibHVlLWFsY29o/b2wtYm90dGxlLXRv/LXdhc2gtd291bmRz/LmpwZz9zPTYxMng2/MTImdz0wJms9MjAm/Yz1vYkltakNzNGJv/eGVkXzV0Ti1uaTJy/UE4zZ3Nobk9LZ2J3/NGVIS2N0Sjg4PQ'
     },
     {
         id: 2,
@@ -28,7 +28,7 @@ const initialLostFound = [
         status: 'Lost',
         contact: 'Room 203',
         date: new Date(Date.now() - 86400000).toISOString(),
-        image: null
+        image: 'https://imgs.search.brave.com/D_TA7lInOpZp1dlAaATuG2spSwSl6id7ji-nR7I2sso/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9ydWtt/aW5pbTIuZmxpeGNh/cnQuY29tL2ltYWdl/LzYxMi82MTIveGlm/MHEvY2FsY3VsYXRv/ci84L2QvNi9zY2ll/bnRpZmljLWNhbGN1/bGF0b3Itc3IwMDA5/LXNyLWV4aW0tb3Jp/Z2luYWwtaW1haGdo/Zzl1eGZ6YWdyeC5q/cGVnP3E9NzA'
     }
 ];
 
@@ -262,7 +262,7 @@ export const loginUser = (role) => {
     const existingUser = JSON.parse(localStorage.getItem(AUTH_KEY));
     const userId = existingUser?.id || `user_${Date.now()}`;
 
-    const user = { role, name: role === 'student' ? 'Aditya Student' : 'Warden Sir', id: userId };
+    const user = { role, name: role === 'student' ? 'Aditya Student' : 'Warden', id: userId };
     localStorage.setItem(AUTH_KEY, JSON.stringify(user));
     return user;
 };

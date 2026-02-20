@@ -8,10 +8,10 @@ export const Button = ({ children, onClick, variant = 'primary', size = 'md', cl
 
     const variants = {
         primary: 'bg-gradient-to-r from-blue-600 to-indigo-600 text-white hover:from-blue-700 hover:to-indigo-700 shadow-lg shadow-blue-500/30 hover:shadow-blue-500/50',
-        secondary: 'bg-white text-slate-700 hover:bg-slate-50 border border-slate-200 shadow-sm hover:shadow-md',
-        danger: 'bg-red-50 text-red-600 hover:bg-red-100 border border-red-100',
-        outline: 'border-2 border-slate-200 text-slate-600 hover:border-slate-300 hover:bg-slate-50',
-        ghost: 'text-slate-600 hover:bg-slate-100 hover:text-slate-900',
+        secondary: 'bg-white text-slate-700 hover:bg-slate-50 border border-slate-200 shadow-sm hover:shadow-md dark:bg-slate-800 dark:text-slate-200 dark:border-slate-700 dark:hover:bg-slate-700',
+        danger: 'bg-red-50 text-red-600 hover:bg-red-100 border border-red-100 dark:bg-red-900/20 dark:text-red-400 dark:border-red-900/30 dark:hover:bg-red-900/30',
+        outline: 'border-2 border-slate-200 text-slate-600 hover:border-slate-300 hover:bg-slate-50 dark:border-slate-700 dark:text-slate-400 dark:hover:border-slate-600 dark:hover:bg-slate-800',
+        ghost: 'text-slate-600 hover:bg-slate-100 hover:text-slate-900 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-slate-200',
     };
 
     const sizes = {

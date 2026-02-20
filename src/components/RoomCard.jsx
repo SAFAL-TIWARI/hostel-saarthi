@@ -8,10 +8,10 @@ import { clsx } from 'clsx';
 const RoomCard = ({ room, onBook, isWarden, onToggleStatus }) => {
     const getStatusColor = (status) => {
         switch (status) {
-            case 'Available': return 'bg-emerald-100 text-emerald-700 border-emerald-200';
-            case 'Full': return 'bg-rose-100 text-rose-700 border-rose-200';
-            case 'Maintenance': return 'bg-amber-100 text-amber-700 border-amber-200';
-            default: return 'bg-slate-100 text-slate-700 border-slate-200';
+            case 'Available': return 'bg-emerald-100 text-emerald-700 border-emerald-200 dark:bg-emerald-900/30 dark:text-emerald-400 dark:border-emerald-900/50';
+            case 'Full': return 'bg-rose-100 text-rose-700 border-rose-200 dark:bg-rose-900/30 dark:text-rose-400 dark:border-rose-900/50';
+            case 'Maintenance': return 'bg-amber-100 text-amber-700 border-amber-200 dark:bg-amber-900/30 dark:text-amber-400 dark:border-amber-900/50';
+            default: return 'bg-slate-100 text-slate-700 border-slate-200 dark:bg-slate-800 dark:text-slate-400 dark:border-slate-700';
         }
     };
 
@@ -26,8 +26,8 @@ const RoomCard = ({ room, onBook, isWarden, onToggleStatus }) => {
             <div className="p-5 flex-1">
                 <div className="flex justify-between items-start mb-6">
                     <div>
-                        <span className="text-xs font-semibold text-slate-400 uppercase tracking-wider">Room No.</span>
-                        <h3 className="text-2xl font-bold text-slate-800 font-display">{room.number}</h3>
+                        <span className="text-xs font-semibold text-slate-400 uppercase tracking-wider dark:text-slate-500">Room No.</span>
+                        <h3 className="text-2xl font-bold text-slate-800 font-display dark:text-white">{room.number}</h3>
                     </div>
                     <span className={clsx(
                         "inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium border",
@@ -38,18 +38,18 @@ const RoomCard = ({ room, onBook, isWarden, onToggleStatus }) => {
                 </div>
 
                 <div className="flex items-center justify-between mb-2">
-                    <span className="text-sm font-medium text-slate-600">Occupancy</span>
-                    <span className="text-sm font-bold text-slate-900">{room.occupied} <span className="text-slate-400 font-normal">/ {room.capacity}</span></span>
+                    <span className="text-sm font-medium text-slate-600 dark:text-slate-400">Occupancy</span>
+                    <span className="text-sm font-bold text-slate-900 dark:text-slate-200">{room.occupied} <span className="text-slate-400 font-normal dark:text-slate-600">/ {room.capacity}</span></span>
                 </div>
 
-                <div className="w-full bg-slate-100 rounded-full h-3 mb-6 overflow-hidden">
+                <div className="w-full bg-slate-100 rounded-full h-3 mb-6 overflow-hidden dark:bg-slate-800">
                     <div
                         className={clsx("h-full rounded-full transition-all duration-500 ease-out shadow-sm", getProgressColor(room.status))}
                         style={{ width: `${(room.occupied / room.capacity) * 100}%` }}
                     />
                 </div>
 
-                <div className="flex gap-2 mt-auto pt-4 border-t border-slate-50">
+                <div className="flex gap-2 mt-auto pt-4 border-t border-slate-50 dark:border-slate-800">
                     {isWarden ? (
                         <Button
                             variant="secondary"

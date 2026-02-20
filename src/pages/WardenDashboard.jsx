@@ -63,8 +63,8 @@ const WardenDashboard = () => {
                     <Icon className={`w-6 h-6 ${color.replace('bg-', 'text-')}`} />
                 </div>
                 <p className="text-sm font-medium text-slate-500">{title}</p>
-                <h3 className="text-3xl font-bold text-slate-800 mt-1">{value}</h3>
-                <p className="text-xs text-slate-400 mt-2">{subtext}</p>
+                <h3 className="text-3xl font-bold text-slate-800 mt-1 dark:text-slate-100">{value}</h3>
+                <p className="text-xs text-slate-400 mt-2 dark:text-slate-500">{subtext}</p>
             </CardContent>
         </Card>
     );
@@ -75,7 +75,7 @@ const WardenDashboard = () => {
                 return (
                     <div className="space-y-6 animate-in fade-in duration-500">
                         <div className="flex justify-between items-center">
-                            <h2 className="text-2xl font-bold font-display text-slate-800">Room Management</h2>
+                            <h2 className="text-2xl font-bold font-display text-slate-800 dark:text-white">Room Management</h2>
                         </div>
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                             {rooms.map(room => (
@@ -87,22 +87,22 @@ const WardenDashboard = () => {
             case 'complaints':
                 return (
                     <div className="space-y-6 animate-in fade-in duration-500">
-                        <h2 className="text-2xl font-bold font-display text-slate-800">Complaints Overview</h2>
+                        <h2 className="text-2xl font-bold font-display text-slate-800 dark:text-white">Complaints Overview</h2>
                         <div className="space-y-3">
-                            {complaints.length === 0 ? <p className="text-slate-500 text-center py-10">No complaints found.</p> : complaints.map(c => (
-                                <div key={c.id} className="bg-white p-4 rounded-xl border border-slate-100 shadow-sm flex flex-col md:flex-row items-start md:items-center gap-4 transition-all hover:shadow-md">
-                                    <div className="p-3 bg-slate-50 rounded-lg">
+                            {complaints.length === 0 ? <p className="text-slate-500 text-center py-10 dark:text-slate-400">No complaints found.</p> : complaints.map(c => (
+                                <div key={c.id} className="bg-white p-4 rounded-xl border border-slate-100 shadow-sm flex flex-col md:flex-row items-start md:items-center gap-4 transition-all hover:shadow-md dark:bg-slate-900 dark:border-slate-800 text-left">
+                                    <div className="p-3 bg-slate-50 rounded-lg dark:bg-slate-800">
                                         <AlertTriangle className="w-5 h-5 text-slate-400" />
                                     </div>
                                     <div className="flex-1">
                                         <div className="flex items-center gap-2">
-                                            <h4 className="font-bold text-slate-800">{c.title}</h4>
-                                            <span className="text-sm font-medium text-slate-500 bg-slate-100 px-2 rounded">Room {c.roomNumber}</span>
+                                            <h4 className="font-bold text-slate-800 dark:text-slate-100">{c.title}</h4>
+                                            <span className="text-sm font-medium text-slate-500 bg-slate-100 px-2 rounded dark:bg-slate-800 dark:text-slate-400">Room {c.roomNumber}</span>
                                         </div>
-                                        <p className="text-sm text-slate-600 mt-1">{c.description}</p>
+                                        <p className="text-sm text-slate-600 mt-1 dark:text-slate-400">{c.description}</p>
                                     </div>
                                     <div className="flex items-center gap-3">
-                                        <span className={`px-2.5 py-0.5 rounded-full text-xs font-semibold ${c.status === 'Resolved' ? 'bg-emerald-100 text-emerald-700' : 'bg-amber-100 text-amber-700'}`}>
+                                        <span className={`px-2.5 py-0.5 rounded-full text-xs font-semibold ${c.status === 'Resolved' ? 'bg-emerald-100 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-400' : 'bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-400'}`}>
                                             {c.status}
                                         </span>
                                         {c.status === 'Pending' && (
@@ -117,15 +117,15 @@ const WardenDashboard = () => {
             case 'gatepass':
                 return (
                     <div className="space-y-6 animate-in fade-in duration-500">
-                        <h2 className="text-2xl font-bold font-display text-slate-800">Gate Pass Requests</h2>
+                        <h2 className="text-2xl font-bold font-display text-slate-800 dark:text-white">Gate Pass Requests</h2>
                         <div className="space-y-3">
-                            {gatePasses.length === 0 ? <p className="text-slate-500 text-center py-10">No requests found.</p> : gatePasses.map(p => (
-                                <div key={p.id} className="bg-white p-4 rounded-xl border border-slate-100 shadow-sm flex flex-col md:flex-row items-center gap-6 transition-all hover:shadow-md">
+                            {gatePasses.length === 0 ? <p className="text-slate-500 text-center py-10 dark:text-slate-400">No requests found.</p> : gatePasses.map(p => (
+                                <div key={p.id} className="bg-white p-4 rounded-xl border border-slate-100 shadow-sm flex flex-col md:flex-row items-center gap-6 transition-all hover:shadow-md dark:bg-slate-900 dark:border-slate-800 text-left">
                                     <div className="flex-1">
-                                        <h4 className="font-bold text-slate-800 text-lg">{p.reason}</h4>
-                                        <div className="flex gap-6 mt-2 text-sm text-slate-600">
-                                            <span><strong className='text-slate-900'>From:</strong> {p.departureDate}</span>
-                                            <span><strong className='text-slate-900'>To:</strong> {p.returnDate}</span>
+                                        <h4 className="font-bold text-slate-800 text-lg dark:text-slate-100">{p.reason}</h4>
+                                        <div className="flex gap-6 mt-2 text-sm text-slate-600 dark:text-slate-400">
+                                            <span><strong className='text-slate-900 dark:text-slate-200'>From:</strong> {p.departureDate}</span>
+                                            <span><strong className='text-slate-900 dark:text-slate-200'>To:</strong> {p.returnDate}</span>
                                         </div>
                                     </div>
                                     <div className="flex items-center gap-4">
@@ -139,7 +139,7 @@ const WardenDashboard = () => {
                                                 </Button>
                                             </div>
                                         ) : (
-                                            <span className={`px-3 py-1 rounded-full text-xs font-semibold ${p.status === 'Approved' ? 'bg-emerald-100 text-emerald-700' : 'bg-rose-100 text-rose-700'}`}>
+                                            <span className={`px-3 py-1 rounded-full text-xs font-semibold ${p.status === 'Approved' ? 'bg-emerald-100 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-400' : 'bg-rose-100 text-rose-700 dark:bg-rose-900/30 dark:text-rose-400'}`}>
                                                 {p.status}
                                             </span>
                                         )}
@@ -181,11 +181,11 @@ const WardenDashboard = () => {
     }
 
     return (
-        <div className="flex h-screen bg-slate-50">
+        <div className="flex h-screen bg-slate-50 dark:bg-slate-950">
             <Sidebar isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} />
             <div className="flex-1 flex flex-col overflow-hidden">
                 <Navbar toggleSidebar={() => setSidebarOpen(!sidebarOpen)} />
-                <main className="flex-1 overflow-x-hidden overflow-y-auto bg-slate-50 p-4 lg:p-8">
+                <main className="flex-1 overflow-x-hidden overflow-y-auto bg-slate-50 p-4 lg:p-8 dark:bg-slate-950">
                     <Toaster position="top-right" richColors />
                     <div className="max-w-7xl mx-auto">
                         {renderContent()}

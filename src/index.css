@@ -4,7 +4,7 @@
 
 @layer base {
   body {
-    @apply bg-slate-50 text-slate-900 antialiased;
+    @apply bg-slate-50 text-slate-900 antialiased dark:bg-slate-900 dark:text-slate-50;
     font-family: 'Jost', sans-serif;
   }
 
@@ -20,7 +20,7 @@
 
 @layer utilities {
   .glass-morphism {
-    @apply bg-white/70 backdrop-blur-lg border border-white/20 shadow-xl;
+    @apply bg-white/70 backdrop-blur-lg border border-white/20 shadow-xl dark:bg-slate-900/70 dark:border-slate-700/30;
   }
 
   .text-gradient {
